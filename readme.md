@@ -16,30 +16,37 @@ Run `composer install` from this directory.
 
 ```
 
-kirbylog()->log("This text will be added to /site/kirbylogs/kirbylog.log by default");
+kirbylog()->log("This text will be added to the default log");
 
 ```
 
-_The logfile will be created automatically when not existant._
+Output in `/site/kirbylogs/kirbylog.log` will be `[2018-08-06 17:26:50.376956] This text will be added to the default log`.
 
-### Use a custom log name:
+_FYI: The logfile will be created automatically when not existant._
+
+### Custom log name
 
 ```
 
 $kirbyLogger = kirbyLog("my-own-logfile.log");
-$kirbyLogger->log("This event will be added to /site/kirbylogs/my-own-logfile.log");
+$kirbyLogger->log("This event will be added to my custom named logfile");
 
 ```
 
-### Use loglevels
+Output in `/site/kirbylogs/my-own-logfile.log` will be `[2018-08-06 17:26:50.376956] This event will be added to my custom named logfile`.
 
-[as defined by PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel):
+### Loglevels
+
+[As defined by PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel):
+
+```
+
+kirbyLog("kirbylog.log", ['logFormat' => "[{date}] [{level}] {message}"])->log("test", "info");
 
 ```
 
-kirbyLog()->log("testjeZZZ", "info");
+Output in `/site/kirbylogs/kirbylog.log` will be `[2018-08-06 17:26:50.372955] [info] test`.
 
-```
 
 Be sure to use a custom logformat when you want to loglevels to be logged. (They are not logged by default).
 
