@@ -12,7 +12,7 @@ Run `composer install` from this directory.
 
 ## Usage
 
-You can log to multiple logfiles, so create an instance with the name of the log you want to write to:
+### Simplest form
 
 ```
 
@@ -22,7 +22,7 @@ kirbylog()->log("This text will be added to /site/kirbylogs/kirbylog.log by defa
 
 _The logfile will be created automatically when not existant._
 
-Use a custom log name:
+### Use a custom log name:
 
 ```
 
@@ -31,7 +31,9 @@ $kirbyLogger->log("This event will be added to /site/kirbylogs/my-own-logfile.lo
 
 ```
 
-Use loglevels [as defined by PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel):
+### Use loglevels
+
+[as defined by PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel):
 
 ```
 
@@ -40,6 +42,8 @@ kirbyLog()->log("testjeZZZ", "info");
 ```
 
 Be sure to use a custom logformat when you want to loglevels to be logged. (They are not logged by default).
+
+### Advanced options
 
 You can also set [the dateFormat](http://php.net/manual/en/function.date.php), [logFormat](https://github.com/katzgrau/KLogger#log-formatting) and appendContext when setting up the KirbyLog object:
 
@@ -56,6 +60,8 @@ kirbyLog("infolog.log", $options)->log("Info about something", "info");
 
 More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-options).
 
-## Options
+## Kirby configurable options
 
 1. The default location where logfiles will be saved is `/site/kirbylogs/`. You can change `kirbylogs` foldername by using setting it via the options `$kirby->option("bvdputte.kirbylog.logfolder", "myownfoldername");`.
+2. The default logname is ``. Change it with `$kirby->option("bvdputte.kirbylog.logname", "kirbylog.log");`.
+3. The default logformate is `[{date}] {message}` (thus _without the log level_). Change it with `$kirby->option("bvdputte.kirbylog.logformat", "[{date}] [{level}] {message}");`.
