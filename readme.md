@@ -30,10 +30,14 @@ $myLogger->write("This event will be added to mylog.log");
 
 ```
 
-The output in the log will be prepended with a timestamp:
+The output in the log (`/site/kirbylogs/mylog.log`) will be prepended with a timestamp:
 
 ```
 
 [2018-08-06 13:08:37.729538] This event will be added to mylog.log
 
 ```
+
+## Options
+
+1. The default location where logfiles will be saved is `/site/kirbylogs/`. You can change `kirbylogs` foldername by using setting it via the options `$kirby->option("bvdputte.kirbylog.logfolder", "myownfoldername");`.
