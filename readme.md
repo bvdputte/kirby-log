@@ -70,5 +70,5 @@ More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-optio
 ## Kirby configurable options
 
 1. The default location where logfiles will be saved is `/site/kirbylogs/`. You can change `kirbylogs` foldername by using setting it via the options `$kirby->option("bvdputte.kirbylog.logfolder", "myownfoldername");`.
-2. The default logname is ``. Change it with `$kirby->option("bvdputte.kirbylog.logname", "kirbylog.log");`.
+2. The default logname is `kirbylog.log`. Change it with `$kirby->option("bvdputte.kirbylog.logname", "custom-logname.log");`.
 3. The default logformate is `[{date}] {message}` (thus _without the log level_). Change it with `$kirby->option("bvdputte.kirbylog.logformat", "[{date}] [{level}] {message}");`.
