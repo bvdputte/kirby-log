@@ -16,27 +16,45 @@ You can log to multiple logfiles, so create an instance with the name of the log
 
 ```
 
-$myLogger = new bvdputte\kirbyLog\Logger("mylog.log");
+kirbylog()->log("This text will be added to /site/kirbylogs/kirbylog.log by default");
 
 ```
 
 _The logfile will be created automatically when not existant._
 
-Write to the log:
+Use a custom log name:
 
 ```
 
-$myLogger->write("This event will be added to mylog.log");
+$kirbyLogger = kirbyLog("my-own-logfile.log");
+$kirbyLogger->log("This event will be added to /site/kirbylogs/my-own-logfile.log");
 
 ```
 
-The output in the log (`/site/kirbylogs/mylog.log`) will be prepended with a timestamp:
+Use loglevels [as defined by PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel):
 
 ```
 
-[2018-08-06 13:08:37.729538] This event will be added to mylog.log
+kirbyLog()->log("testjeZZZ", "info");
 
 ```
+
+Be sure to use a custom logformat when you want to loglevels to be logged. (They are not logged by default).
+
+You can also set [the dateFormat](http://php.net/manual/en/function.date.php), [logFormat](https://github.com/katzgrau/KLogger#log-formatting) and appendContext when setting up the KirbyLog object:
+
+```
+
+$options = array (
+    'dateFormat'     => 'Y-m-d G:i:s.u',
+    'logFormat'      => false,
+    'appendContext'  => true,
+);
+kirbyLog("infolog.log", $options)->log("Info about something", "info");
+
+```
+
+More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-options).
 
 ## Options
 
