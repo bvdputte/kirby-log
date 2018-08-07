@@ -24,7 +24,7 @@ kirbylog()->log("This text will be added to the default log");
 - Logfile: `/site/kirbylogs/kirbylog.log`
 
 - 💡 The logfile will be created automatically when not existant.
-- 💡 By default the level is `info`.
+- 💡 By default the level is `info`. [This can be set in the options](#kirby-configurable-options).
 
 ### Extended arguments
 
