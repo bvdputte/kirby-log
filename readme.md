@@ -23,7 +23,7 @@ kirbylog()->log("This text will be added to the default log");
 - Output: `[2018-08-06 17:26:50.376956] [info] This text will be added to the default log`.
 - Logfile: `/site/kirbylogs/kirbylog.log`
 
-*💡 Gotcha's*:
+💡 *Gotcha's*:
 
 - The logfile will be created automatically when not existant.
 - By default the level is `info`. [This can be set in the options](#kirby-configurable-options).
