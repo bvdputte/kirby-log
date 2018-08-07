@@ -20,11 +20,11 @@ kirbylog()->log("This text will be added to the default log");
 
 ```
 
-Output: `[2018-08-06 17:26:50.376956] [info] This text will be added to the default log`.
-Logfile: `/site/kirbylogs/kirbylog.log`
+- Output: `[2018-08-06 17:26:50.376956] [info] This text will be added to the default log`.
+- Logfile: `/site/kirbylogs/kirbylog.log`
 
-💡 The logfile will be created automatically when not existant.
-💡 By default the level is `info`.
+- 💡 The logfile will be created automatically when not existant.
+- 💡 By default the level is `info`.
 
 ### Extended arguments
 
@@ -37,8 +37,8 @@ $kirbyLogger->log("This event will be added to my custom named logfile");
 
 ```
 
-Output: `[2018-08-06 17:26:50.376956] [info] This event will be added to my custom named logfile`.
-Logfile: `/site/kirbylogs/my-own-logfile.log`
+- Output: `[2018-08-06 17:26:50.376956] [info] This event will be added to my custom named logfile`.
+- Logfile: `/site/kirbylogs/my-own-logfile.log`
 
 #### 2. Loglevel
 
@@ -50,8 +50,8 @@ kirbyLog("kirbylog.log")->log("error", "info");
 
 ```
 
-Output: `[2018-08-06 17:26:50.372955] [error] test`
-Logfile: `/site/kirbylogs/kirbylog.log`
+- Output: `[2018-08-06 17:26:50.372955] [error] test`
+- Logfile: `/site/kirbylogs/kirbylog.log`
 
 #### 3. Extended options
 
@@ -81,14 +81,14 @@ kirbyLog()->log("My message", "debug", $arr);
 
 ```
 
-Output: 
+- Output: 
 ```
 [2018-08-06 17:26:50.373625] [debug] My message
     0: 'foo'
     1: 'bar'
     2: 'baz'
 ```
-Logfile: `/site/kirbylogs/kirbylog.log`
+- Logfile: `/site/kirbylogs/kirbylog.log`
 
 ## Kirby configurable options
 
