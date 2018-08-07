@@ -2,7 +2,7 @@
 namespace bvdputte\kirbyLog;
 use Psr\Log\LogLevel;
 
-class KirbyLog {
+class Logger {
     public $logger;
 
     protected $options = [];
@@ -48,7 +48,7 @@ class KirbyLog {
         if(array_search($level, $this->logLevels)) {
             $logger->$level($message, $context);
         } else {
-            var_dump("Error occurred");
+            echo("Error: invalid loglevel code. Please use a PSR-3 loglevel code.");
         }
     }
 }

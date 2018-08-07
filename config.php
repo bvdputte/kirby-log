@@ -3,20 +3,18 @@
 Kirby::plugin('bvdputte/kirbylog', [
     'options' => [
         'logfolder' => 'kirbylogs',
-        'logname' => 'kirbylog.log',
-        'logformat' => "[{date}] {message}"
+        'logname' => 'kirbylog.log'
     ],
 ]);
 
+/*
+    A little Kirby helper function
+*/
 if (! function_exists("kirbyLog")) {
     function kirbyLog($name = null, $opts = []) {
         $logName = $name ?? kirby()->option("bvdputte.kirbylog.logname");
-        $options = array (
-            'logFormat' => kirby()->option("bvdputte.kirbylog.logformat"),
-        );
-        $options = array_merge($options, $opts);
         
-        $kirbyLog = new bvdputte\kirbyLog\KirbyLog($logName, $options);
+        $kirbyLog = new bvdputte\kirbyLog\Logger($logName, $opts);
         
         return $kirbyLog;
     }
