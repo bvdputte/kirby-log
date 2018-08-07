@@ -94,3 +94,4 @@ kirbyLog()->log("My message", "debug", $arr);
 
 1. The default location where logfiles will be saved is `/site/kirbylogs/`. You can change `kirbylogs` foldername by using setting it via the options `$kirby->option("bvdputte.kirbylog.logfolder", "myownfoldername");`.
 2. The default logname is `kirbylog.log`. Change it with `$kirby->option("bvdputte.kirbylog.logname", "custom-logname.log");`.
+3. The default loglevel is `info`. Change it with `$kirby->option("bvdputte.kirbylog.defaultloglevel, "debug");`. Be sure to use a valid PSR-3 loglevel.

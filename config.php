@@ -3,7 +3,8 @@
 Kirby::plugin('bvdputte/kirbylog', [
     'options' => [
         'logfolder' => 'kirbylogs',
-        'logname' => 'kirbylog.log'
+        'logname' => 'kirbylog.log',
+        'defaultloglevel' => 'info'
     ],
 ]);
 

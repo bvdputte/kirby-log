@@ -41,8 +41,11 @@ class Logger {
     //     return $this->logger;
     // }
 
-    public function log($message, $level = "debug", $context = []) {
+    public function log($message, $loglevel = null, $context = []) {
         $logger = $this->logger;
+
+        // Fallback to default loglevel if none passed
+        $level = isset($loglevel) ? $loglevel : kirby()->option("bvdputte.kirbylog.defaultloglevel");
 
         //if (method_exists($logger, $level)) {
         if(array_search($level, $this->logLevels)) {
