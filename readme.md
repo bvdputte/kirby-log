@@ -42,11 +42,11 @@ $kirbyLogger->log("This event will be added to my custom named logfile");
 #### 2. Extended options
 
 Several extended options are available:
-- [dateFormat](http://php.net/manual/en/function.date.php)
-- [logFormat](https://github.com/katzgrau/KLogger#log-formatting)
-- [appendContext](#3-appendcontext)
+- dateFormat: [use PHP syntax](http://php.net/manual/en/function.date.php)
+- logFormat: [formatting options](https://github.com/katzgrau/KLogger#log-formatting)
+- appendContext: Enable/Disable. [More info](#3-appendcontext)
 
-Pass them as an associative array to the logger:
+Pass them as follows to the logger using an associative array:
 
 ```
 
