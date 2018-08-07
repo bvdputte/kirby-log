@@ -83,7 +83,7 @@ kirbyLog()->log("My message", "debug", $arr);
 
 ### Loglevel
 
-As defined by [PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel), you can pass the wanted loglevel in the `->log()` method:
+As defined by [PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel), you can pass the wanted loglevel as the second argument in the `->log()` method:
 
 ```
 
