@@ -25,9 +25,9 @@ kirbylog()->log("This text will be added to the default log");
 
 💡 The logfile will be created automatically when not existant.
 
-### Extended arguments
+## Extended arguments
 
-#### 1. Custom log name
+### 1. Custom log name
 
 ```
 
@@ -39,7 +39,7 @@ $kirbyLogger->log("This event will be added to my custom named logfile");
 - Output: `[2018-08-06 17:26:50.376956] [info] This event will be added to my custom named logfile`.
 - Logfile: `/site/kirbylogs/my-own-logfile.log`
 
-#### 2. Extended options
+### 2. Extended options
 
 Several extended options are available:
 - dateFormat: [use PHP syntax](http://php.net/manual/en/function.date.php)
@@ -61,7 +61,7 @@ kirbyLog("infolog.log", $options)->log("Info about something", "info");
 
 More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-options).
 
-#### 3. AppendContext
+### 3. AppendContext
 
 AppendContext can be interesting to include variables to your log.
 
@@ -81,7 +81,7 @@ kirbyLog()->log("My message", "debug", $arr);
 ```
 - Logfile: `/site/kirbylogs/kirbylog.log`
 
-#### Loglevel
+### Loglevel
 
 As defined by [PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel), you can pass the wanted loglevel in the `->log()` method:
 
