@@ -7,17 +7,19 @@ It's a wrapper around [KLogger](https://github.com/katzgrau/KLogger).
 
 ## Installation
 
-Put the `kirby-log` folder in your `site/plugins` folder.
-Run `composer install` from this directory.
+Put the `kirby-log` folder in your `site/plugins` folder, then install via composer:
+
+```ssh
+cd site/plugins/kirby-queue
+composer install --no-dev
+```
 
 ## Usage
 
 ### Default
 
-```
-
+```php
 kirbylog()->log("This text will be added to the default log");
-
 ```
 
 - Output: `[2018-08-06 17:26:50.376956] [info] This text will be added to the default log`.
@@ -29,11 +31,9 @@ kirbylog()->log("This text will be added to the default log");
 
 ### 1. Custom log name
 
-```
-
+```php
 $kirbyLogger = kirbyLog("my-own-logfile.log");
 $kirbyLogger->log("This event will be added to my custom named logfile");
-
 ```
 
 - Output: `[2018-08-06 17:26:50.376956] [info] This event will be added to my custom named logfile`.
@@ -48,15 +48,13 @@ Several extended options are available:
 
 Pass them as follows to the logger using an associative array:
 
-```
-
+```php
 $options = array (
     'dateFormat'     => 'Y-m-d G:i:s.u',
     'logFormat'      => false,
     'appendContext'  => true,
 );
 kirbyLog("infolog.log", $options)->log("Info about something", "info");
-
 ```
 
 More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-options).
@@ -65,11 +63,9 @@ More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-optio
 
 AppendContext can be interesting to include variables to your log.
 
-```
-
+```php
 $arr = ["foo", "bar", "baz"];
 kirbyLog()->log("My message", "debug", $arr);
-
 ```
 
 - Output: 
@@ -85,13 +81,11 @@ kirbyLog()->log("My message", "debug", $arr);
 
 As defined by [PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel), you can pass the wanted loglevel as the second argument in the `->log()` method:
 
+```php
+kirbyLog("kirbylog.log")->log("My message", "error");
 ```
 
-kirbyLog("kirbylog.log")->log("error", "info");
-
-```
-
-- Output: `[2018-08-06 17:26:50.372955] [error] test`
+- Output: `[2018-08-06 17:26:50.372955] [error] My message`
 - Logfile: `/site/kirbylogs/kirbylog.log`
 
 💡 By default the loglevel is `info`. [This can be set in the options](#kirby-configurable-options).
