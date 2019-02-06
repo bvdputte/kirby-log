@@ -7,7 +7,7 @@ It's a wrapper around [KLogger](https://github.com/katzgrau/KLogger).
 ## Installation
 
 - unzip [master.zip](https://github.com/ bvdputte/kirby-log/archive/master.zip) as folder `site/plugins/kirby-log` or
-- `git submodule add https://github.com/ bvdputte/kirby-log.git site/plugins/kirby-log` or
+- `git submodule add https://github.com/bvdputte/kirby-log.git site/plugins/kirby-log` or
 - `composer require bvdputte/kirby-log`
 
 ## Usage
