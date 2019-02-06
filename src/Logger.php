@@ -1,8 +1,10 @@
 <?php
 namespace bvdputte\kirbyLog;
+
 use Psr\Log\LogLevel;
 
-class Logger {
+class Logger
+{
     public $logger;
 
     protected $options = [];
@@ -18,11 +20,11 @@ class Logger {
         "debug"
     ];
 
-    function __construct($name = null, array $options = [], $logLevelThreshold = LogLevel::DEBUG) {
-
+    public function __construct($name = null, array $options = [], $logLevelThreshold = LogLevel::DEBUG)
+    {
         $logroot = kirby()->roots()->site() . DS . kirby()->option("bvdputte.kirbylog.logfolder");
 
-        if(isset($name)) {
+        if (isset($name)) {
             $this->options["filename"] = $name;
         }
 
@@ -41,14 +43,15 @@ class Logger {
     //     return $this->logger;
     // }
 
-    public function log($message, $loglevel = null, $context = []) {
+    public function log($message, $loglevel = null, $context = [])
+    {
         $logger = $this->logger;
 
         // Fallback to default loglevel if none passed
         $level = isset($loglevel) ? $loglevel : kirby()->option("bvdputte.kirbylog.defaultloglevel");
 
         //if (method_exists($logger, $level)) {
-        if(array_search($level, $this->logLevels)) {
+        if (array_search($level, $this->logLevels)) {
             $logger->$level($message, $context);
         } else {
             echo("Error: invalid loglevel code. Please use a PSR-3 loglevel code.");

@@ -3,16 +3,12 @@
 A little log utility you can use with Kirby 3.
 It's a wrapper around [KLogger](https://github.com/katzgrau/KLogger).
 
-⚠️ This plugin is currently a playground for me to test the new Kirby plugin system. Do not use in production _yet_. ⚠️ 
 
 ## Installation
 
-Put the `kirby-log` folder in your `site/plugins` folder, then install via composer:
-
-```ssh
-cd site/plugins/kirby-queue
-composer install --no-dev
-```
+- unzip [master.zip](https://github.com/ bvdputte/kirby-log/archive/master.zip) as folder `site/plugins/kirby-log` or
+- `git submodule add https://github.com/ bvdputte/kirby-log.git site/plugins/kirby-log` or
+- `composer require bvdputte/kirby-log`
 
 ## Usage
 
@@ -95,3 +91,14 @@ kirbyLog("kirbylog.log")->log("My message", "error");
 1. The default location where logfiles will be saved is `/site/kirbylogs/`. You can change `kirbylogs` foldername by using setting it via the options `$kirby->option("bvdputte.kirbylog.logfolder", "myownfoldername");`.
 2. The default logname is `kirbylog.log`. Change it with `$kirby->option("bvdputte.kirbylog.logname", "custom-logname.log");`.
 3. The default loglevel is `info`. Change it with `$kirby->option("bvdputte.kirbylog.defaultloglevel, "debug");`. Be sure to [use a valid PSR-3 loglevel](#loglevel).
+
+
+## Disclaimer
+
+This plugin is provided "as is" with no guarantee. Use it at your own risk and always test it yourself before using it in a production environment. If you find any issues, please [create a new issue](https://github.com/bvdputte/kirby-log/issues/new).
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+It is discouraged to use this plugin in any project that promotes racism, sexism, homophobia, animal abuse, violence or any other form of hate speech.
