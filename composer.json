@@ -1,6 +1,6 @@
 {
     "name": "bvdputte/kirby-log",
-    "description": "Logging utility for Kirby - based on katzgrau/KLogger",
+    "description": "Logging utility for Kirby 3 - based on katzgrau/KLogger",
     "version": "1.0.0",
     "license": "MIT",
     "type": "kirby-plugin",
