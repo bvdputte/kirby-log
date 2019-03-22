@@ -1,9 +1,14 @@
 {
     "name": "bvdputte/kirby-log",
     "description": "Logging utility for Kirby 3 - based on katzgrau/KLogger",
-    "version": "1.0.0",
     "license": "MIT",
     "type": "kirby-plugin",
+    "authors": [
+      {
+          "name": "Bart Vandeputte",
+          "email": "bart.vdputte@gmail.com"
+      }
+    ],
     "require": {
         "getkirby/composer-installer": "^1.1",
         "katzgrau/klogger": "^1.2"
@@ -13,12 +18,6 @@
           "bvdputte\\kirbyLog\\": "src/"
       }
     },
-    "authors": [
-        {
-            "name": "Bart Vandeputte",
-            "email": "bart.vdputte@gmail.com"
-        }
-    ],
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true
