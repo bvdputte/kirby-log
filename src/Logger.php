@@ -22,8 +22,6 @@ class Logger
 
     public function __construct($name = null, array $options = [], $logLevelThreshold = LogLevel::DEBUG)
     {
-        $logroot = kirby()->roots()->site() . DS . kirby()->option("bvdputte.kirbylog.logfolder");
-
         if (isset($name)) {
             $this->options["filename"] = $name;
         }
@@ -31,7 +29,7 @@ class Logger
         $this->options = array_merge($this->options, $options);
 
         $this->logger = new \Katzgrau\KLogger\Logger(
-            $logroot,
+            kirby()->roots()->logs(),
             $logLevelThreshold,
             $this->options
         );
