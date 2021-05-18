@@ -12,56 +12,43 @@ It's a wrapper around [KLogger](https://github.com/katzgrau/KLogger).
 
 ## Usage
 
-### Default
+API:
 
 ```php
-kirbylog()->log("This text will be added to the default log");
+$site->log("message", "level" /* optional */, "appendcontext" /* optional */);
+```
+
+### Default usage
+
+```php
+$site->log("This text will be added to the default log");
 ```
 
 - Output: `[2018-08-06 17:26:50.376956] [info] This text will be added to the default log`.
-- Logfile: `/site/kirbylogs/kirbylog.log`
+- Logfile: `/site/logs/kirbylog.log`
 
 💡 The logfile will be created automatically when not existant.
 
-## Extended arguments
+### Define the loglevel
 
-### 1. Custom log name
-
-```php
-$kirbyLogger = kirbyLog("my-own-logfile.log");
-$kirbyLogger->log("This event will be added to my custom named logfile");
-```
-
-- Output: `[2018-08-06 17:26:50.376956] [info] This event will be added to my custom named logfile`.
-- Logfile: `/site/kirbylogs/my-own-logfile.log`
-
-### 2. Extended options
-
-Several extended options are available:
-- dateFormat: [use PHP syntax](http://php.net/manual/en/function.date.php)
-- logFormat: [formatting options](https://github.com/katzgrau/KLogger#log-formatting)
-- [appendContext](#3-appendcontext): Enable/Disable
-
-Pass them as follows to the logger using an associative array:
+As defined by [PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel), you can pass the wanted loglevel as the second argument in the `->log()` method:
 
 ```php
-$options = array (
-    'dateFormat'     => 'Y-m-d G:i:s.u',
-    'logFormat'      => false,
-    'appendContext'  => true,
-);
-kirbyLog("infolog.log", $options)->log("Info about something", "info");
+$site->log("My message", "error");
 ```
 
-More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-options).
+- Output: `[2018-08-06 17:26:50.372955] [error] My message`
+- Logfile: `/site/logs/kirbylog.log`
 
-### 3. AppendContext
+💡 By default the loglevel is `info`. [This can be set in the options](#kirby-configurable-options).
+
+### Log variables to log
 
 AppendContext can be interesting to include variables to your log.
 
 ```php
 $arr = ["foo", "bar", "baz"];
-kirbyLog()->log("My message", "debug", $arr);
+$site->log("My message", "debug", $arr);
 ```
 
 - Output: 
@@ -71,26 +58,50 @@ kirbyLog()->log("My message", "debug", $arr);
     1: 'bar'
     2: 'baz'
 ```
-- Logfile: `/site/kirbylogs/kirbylog.log`
+- Logfile: `/site/logs/kirbylog.log`
 
-### Loglevel
+## Customize the logger
 
-As defined by [PSR-3](https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel), you can pass the wanted loglevel as the second argument in the `->log()` method:
+API:
 
 ```php
-kirbyLog("kirbylog.log")->log("My message", "error");
+$site->logger("logname", "options" /* optional */, "defaultlevel" /* optional */)->log("message", "level" /* optional */, "appendcontext" /* optional */);
 ```
 
-- Output: `[2018-08-06 17:26:50.372955] [error] My message`
-- Logfile: `/site/kirbylogs/kirbylog.log`
+### 1. Custom log name
 
-💡 By default the loglevel is `info`. [This can be set in the options](#kirby-configurable-options).
+```php
+$site->logger("my-own-logfile.log")->log("This event will be added to my custom named logfile");
+```
+
+- Output: `[2018-08-06 17:26:50.376956] [info] This event will be added to my custom named logfile`.
+- Logfile: `/site/logs/my-own-logfile.log`
+
+### 2. Extended options for the logger
+
+Several extended options are available:
+- dateFormat: [use PHP syntax](http://php.net/manual/en/function.date.php)
+- logFormat: [formatting options](https://github.com/katzgrau/KLogger#log-formatting)
+- [appendContext](#3-appendcontext): Enable/Disable
+
+Pass them as follows to the logger using an associative array:
+
+```php
+$options = [
+    'dateFormat'     => 'Y-m-d G:i:s.u',
+    'logFormat'      => false,
+    'appendContext'  => true,
+];
+$site->logger("infolog.log", $options)->log("Info about something", "info");
+```
+
+More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-options).
 
 ## Kirby configurable options
 
-1. The default location where logfiles will be saved is `/site/kirbylogs/`. You can change `kirbylogs` foldername by using setting it via the options `$kirby->option("bvdputte.kirbylog.logfolder", "myownfoldername");`.
-2. The default logname is `kirbylog.log`. Change it with `$kirby->option("bvdputte.kirbylog.logname", "custom-logname.log");`.
-3. The default loglevel is `info`. Change it with `$kirby->option("bvdputte.kirbylog.defaultloglevel, "debug");`. Be sure to [use a valid PSR-3 loglevel](#loglevel).
+1. The default location where logfiles will be saved is the Kirby default logs location: `/site/logs/`. You can change this locaction via the [custom folder setup](https://getkirby.com/docs/guide/configuration#custom-folder-setup) and then change the [logs root](https://getkirby.com/docs/reference/system/roots/logs).
+2. The default logname is `kirbylog.log`. Change it in `config.php` via `'bvdputte.kirbylog.logname' => 'custom-logname.log'`.
+3. The default loglevel is `info`. Change it in `config.php` via `'bvdputte.kirbylog.defaultloglevel' => 'debug'`. Be sure to [use a valid PSR-3 loglevel](#loglevel).
 
 
 ## Disclaimer

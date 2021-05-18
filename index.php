@@ -7,18 +7,18 @@ Kirby::plugin('bvdputte/kirbylog', [
         'logname' => 'kirbylog.log',
         'defaultloglevel' => 'info'
     ],
-]);
+    'siteMethods' => [
+        'log' => function ($message, $loglevel = null, $context = []) {
+            $logName = $name ?? kirby()->option("bvdputte.kirbylog.logname");
+            $logger = new bvdputte\kirbyLog\Logger($logName);
 
-/*
-    A little Kirby helper function
-*/
-if (! function_exists("kirbyLog")) {
-    function kirbyLog($name = null, $opts = [])
-    {
-        $logName = $name ?? kirby()->option("bvdputte.kirbylog.logname");
-        
-        $kirbyLog = new bvdputte\kirbyLog\Logger($logName, $opts);
-        
-        return $kirbyLog;
-    }
-}
+            $logger->log($message, $loglevel, $context);
+        },
+        'logger' => function($name = null, $opts = []) {
+            $logName = $name ?? kirby()->option("bvdputte.kirbylog.logname");
+            $logger = new bvdputte\kirbyLog\Logger($logName, $opts);
+
+            return $logger;
+        }
+    ]
+]);

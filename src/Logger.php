@@ -37,10 +37,6 @@ class Logger
         return $this->logger;
     }
 
-    // public function getLogger() {
-    //     return $this->logger;
-    // }
-
     public function log($message, $loglevel = null, $context = [])
     {
         $logger = $this->logger;
@@ -48,11 +44,13 @@ class Logger
         // Fallback to default loglevel if none passed
         $level = isset($loglevel) ? $loglevel : kirby()->option("bvdputte.kirbylog.defaultloglevel");
 
-        //if (method_exists($logger, $level)) {
         if (array_search($level, $this->logLevels)) {
             $logger->$level($message, $context);
         } else {
-            echo("Error: invalid loglevel code. Please use a PSR-3 loglevel code.");
+            // Show error or fail silently
+            if (kirby()->option("debug") == true) {
+                throw new \Exception("Error: invalid loglevel code. Please use a PSR-3 loglevel code.");
+            }
         }
     }
 }
