@@ -12,7 +12,8 @@
     ],
     "require": {
         "getkirby/composer-installer": "^1.1",
-        "katzgrau/klogger": "^1.2"
+        "katzgrau/klogger": "^1.2",
+        "studio24/rotate": "^1.0"
     },
     "autoload": {
       "psr-4": {

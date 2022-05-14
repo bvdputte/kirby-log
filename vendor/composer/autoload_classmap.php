@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Katzgrau\\KLogger\\Logger' => $vendorDir . '/katzgrau/klogger/src/Logger.php',
     'Kirby\\ComposerInstaller\\CmsInstaller' => $vendorDir . '/getkirby/composer-installer/src/ComposerInstaller/CmsInstaller.php',
     'Kirby\\ComposerInstaller\\Installer' => $vendorDir . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',
@@ -19,8 +20,15 @@ return array(
     'Psr\\Log\\LoggerInterface' => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php',
     'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
-    'Psr\\Log\\Test\\DummyTest' => $vendorDir . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+    'Psr\\Log\\Test\\DummyTest' => $vendorDir . '/psr/log/Psr/Log/Test/DummyTest.php',
     'Psr\\Log\\Test\\LoggerInterfaceTest' => $vendorDir . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
     'Psr\\Log\\Test\\TestLogger' => $vendorDir . '/psr/log/Psr/Log/Test/TestLogger.php',
     'bvdputte\\kirbyLog\\Logger' => $baseDir . '/src/Logger.php',
+    'studio24\\Rotate\\Delete' => $vendorDir . '/studio24/rotate/src/Delete.php',
+    'studio24\\Rotate\\DirectoryIterator' => $vendorDir . '/studio24/rotate/src/DirectoryIterator.php',
+    'studio24\\Rotate\\FilenameFormat' => $vendorDir . '/studio24/rotate/src/FilenameFormat.php',
+    'studio24\\Rotate\\FilenameFormatException' => $vendorDir . '/studio24/rotate/src/FilenameFormatException.php',
+    'studio24\\Rotate\\Rotate' => $vendorDir . '/studio24/rotate/src/Rotate.php',
+    'studio24\\Rotate\\RotateAbstract' => $vendorDir . '/studio24/rotate/src/RotateAbstract.php',
+    'studio24\\Rotate\\RotateException' => $vendorDir . '/studio24/rotate/src/RotateException.php',
 );

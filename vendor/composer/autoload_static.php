@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit9dfc62fa15f5312aa86488031097cc96
 {
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'studio24\\Rotate\\' => 16,
+        ),
         'b' => 
         array (
             'bvdputte\\kirbyLog\\' => 18,
@@ -23,6 +27,10 @@ class ComposerStaticInit9dfc62fa15f5312aa86488031097cc96
     );
 
     public static $prefixDirsPsr4 = array (
+        'studio24\\Rotate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/studio24/rotate/src',
+        ),
         'bvdputte\\kirbyLog\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -42,6 +50,7 @@ class ComposerStaticInit9dfc62fa15f5312aa86488031097cc96
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Katzgrau\\KLogger\\Logger' => __DIR__ . '/..' . '/katzgrau/klogger/src/Logger.php',
         'Kirby\\ComposerInstaller\\CmsInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/CmsInstaller.php',
         'Kirby\\ComposerInstaller\\Installer' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',
@@ -55,10 +64,17 @@ class ComposerStaticInit9dfc62fa15f5312aa86488031097cc96
         'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
         'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
         'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
-        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/DummyTest.php',
         'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
         'bvdputte\\kirbyLog\\Logger' => __DIR__ . '/../..' . '/src/Logger.php',
+        'studio24\\Rotate\\Delete' => __DIR__ . '/..' . '/studio24/rotate/src/Delete.php',
+        'studio24\\Rotate\\DirectoryIterator' => __DIR__ . '/..' . '/studio24/rotate/src/DirectoryIterator.php',
+        'studio24\\Rotate\\FilenameFormat' => __DIR__ . '/..' . '/studio24/rotate/src/FilenameFormat.php',
+        'studio24\\Rotate\\FilenameFormatException' => __DIR__ . '/..' . '/studio24/rotate/src/FilenameFormatException.php',
+        'studio24\\Rotate\\Rotate' => __DIR__ . '/..' . '/studio24/rotate/src/Rotate.php',
+        'studio24\\Rotate\\RotateAbstract' => __DIR__ . '/..' . '/studio24/rotate/src/RotateAbstract.php',
+        'studio24\\Rotate\\RotateException' => __DIR__ . '/..' . '/studio24/rotate/src/RotateException.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

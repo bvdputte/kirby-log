@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'studio24\\Rotate\\' => array($vendorDir . '/studio24/rotate/src'),
     'bvdputte\\kirbyLog\\' => array($baseDir . '/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Kirby\\' => array($vendorDir . '/getkirby/composer-installer/src'),
