@@ -12,7 +12,10 @@ It's a wrapper around [KLogger](https://github.com/katzgrau/KLogger).
 
 ## Usage
 
-API:
+By default, all kirby system exceptions are logged to `site/logs/kirbylog.log`.  
+(Can be disabled via `'bvdputte.kirbylog.exceptionlog' => false` in config.php.
+
+## Logging API:
 
 ```php
 $site->log("message", "level" /* optional */, "appendcontext" /* optional */);

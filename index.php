@@ -5,7 +5,8 @@
 Kirby::plugin('bvdputte/kirbylog', [
     'options' => [
         'logname' => 'kirbylog.log',
-        'defaultloglevel' => 'info'
+        'defaultloglevel' => 'info',
+        'exceptionlog' => true
     ],
     'siteMethods' => [
         'log' => function ($message, $loglevel = null, $context = []) {
@@ -20,5 +21,13 @@ Kirby::plugin('bvdputte/kirbylog', [
 
             return $logger;
         }
+    ],
+    'hooks' => [
+        'system.exception' => function ($exception) {
+            if (kirby()->option("bvdputte.kirbylog.exceptionlog")) {
+                $logger = new bvdputte\kirbyLog\Logger(kirby()->option("bvdputte.kirbylog.logname"));
+                $logger->log($exception, 'error');
+            }
+        },
     ]
 ]);
