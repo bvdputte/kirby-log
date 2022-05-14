@@ -6,7 +6,9 @@ Kirby::plugin('bvdputte/kirbylog', [
     'options' => [
         'logname' => 'kirbylog.log',
         'defaultloglevel' => 'info',
-        'exceptionlog' => true
+        'exceptionlog' => true,
+        'rotateLogs' => true,
+        'rotateLogSizeThreshold' => '10MB' // can be in 'B', 'KB', 'MB' or 'GB'
     ],
     'siteMethods' => [
         'log' => function ($message, $loglevel = null, $context = []) {

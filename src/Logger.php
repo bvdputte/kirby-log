@@ -2,6 +2,7 @@
 namespace bvdputte\kirbyLog;
 
 use Psr\Log\LogLevel;
+use studio24\Rotate\Rotate;
 
 class Logger
 {
@@ -51,6 +52,13 @@ class Logger
             if (kirby()->option("debug") == true) {
                 throw new \Exception("Error: invalid loglevel code. Please use a PSR-3 loglevel code.");
             }
+        }
+
+        // Rotate logs
+        if (kirby()->option("bvdputte.kirbylog.rotateLogs")) {
+            $rotate = new Rotate($logger->getLogFilePath());
+            $rotate->size(kirby()->option("bvdputte.kirbylog.rotateLogSizeThreshold"));
+            $rotate->run();
         }
     }
 }

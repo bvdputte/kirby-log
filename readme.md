@@ -105,6 +105,8 @@ More info on [KLogger docs](https://github.com/katzgrau/KLogger#additional-optio
 1. The default location where logfiles will be saved is the Kirby default logs location: `/site/logs/`. You can change this locaction via the [custom folder setup](https://getkirby.com/docs/guide/configuration#custom-folder-setup) and then change the [logs root](https://getkirby.com/docs/reference/system/roots/logs).
 2. The default logname is `kirbylog.log`. Change it in `config.php` via `'bvdputte.kirbylog.logname' => 'custom-logname.log'`.
 3. The default loglevel is `info`. Change it in `config.php` via `'bvdputte.kirbylog.defaultloglevel' => 'debug'`. Be sure to [use a valid PSR-3 loglevel](#loglevel).
+4. `'bvdputte.kirbylog.rotateLogs' => true`: log rotation is on by default when logs get bigger then 10MB. Set to false to disable logrotation
+5. `'bvdputte.kirbylog.rotateLogSizeThreshold' => '10MB' // can be in 'B', 'KB', 'MB' or 'GB'`: the size-based threshold for logrotation. Defaults to 10MB
 
 
 ## Disclaimer
