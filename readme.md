@@ -1,6 +1,6 @@
 # Kirby log plugin
 
-A little log utility you can use with Kirby 3.
+A little log utility you can use with Kirby CMS.
 It's a wrapper around [KLogger](https://github.com/katzgrau/KLogger).
 
 
